@@ -10,47 +10,78 @@ light.position.set(0, 0, 1);
 scene.add(light);
 
 // Particles
-const particles = new THREE.Group();
 const particleCount = 5000;
-const particleGeometry = new THREE.BufferGeometry();
-const particleMaterial = new THREE.PointsMaterial({
-  color: 0x00ff00,
-  size: 0.02,
-  blending: THREE.AdditiveBlending,
-  transparent: true,
-});
+const particles = new THREE.BufferGeometry();
+const particlePositions = new Float32Array(particleCount * 3);
+const particleVelocities = new Float32Array(particleCount * 3);
 
-const positions = new Float32Array(particleCount * 3);
-for (let i = 0; i < particleCount * 3; i++) {
-  positions[i] = (Math.random() - 0.5) * 10;
+for (let i = 0; i < particleCount; i++) {
+    const i3 = i * 3;
+    const theta = Math.random() * 2 * Math.PI;
+    const phi = Math.acos(2 * Math.random() - 1);
+    const radius = 2 + Math.random() * 2;
+    particlePositions[i3] = radius * Math.sin(phi) * Math.cos(theta);
+    particlePositions[i3 + 1] = radius * Math.sin(phi) * Math.sin(theta);
+    particlePositions[i3 + 2] = radius * Math.cos(phi);
+
+    particleVelocities[i3] = 0;
+    particleVelocities[i3 + 1] = 0;
+    particleVelocities[i3 + 2] = 0;
 }
-particleGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-const particleSystem = new THREE.Points(particleGeometry, particleMaterial);
-particles.add(particleSystem);
-scene.add(particles);
+
+particles.setAttribute('position', new THREE.BufferAttribute(particlePositions, 3));
+const particleMaterial = new THREE.PointsMaterial({
+    color: 0x00ff00,
+    size: 0.04,
+    blending: THREE.AdditiveBlending,
+    transparent: true,
+    opacity: 0.8,
+});
+const particleSystem = new THREE.Points(particles, particleMaterial);
+scene.add(particleSystem);
 
 camera.position.z = 5;
 
 // Animation
-let scrollY = 0;
-window.addEventListener('scroll', () => {
-  scrollY = window.scrollY;
-});
+const clock = new THREE.Clock();
 
 function animate() {
-  requestAnimationFrame(animate);
-  particles.rotation.y += 0.0005;
-  particles.rotation.x = scrollY * 0.0005;
-  renderer.render(scene, camera);
+    const delta = clock.getDelta();
+    const positions = particles.attributes.position.array;
+
+    for (let i = 0; i < particleCount; i++) {
+        const i3 = i * 3;
+        const x = positions[i3];
+        const y = positions[i3 + 1];
+        const z = positions[i3 + 2];
+
+        // Swirl effect
+        const swirlAngle = Math.atan2(y, x);
+        const swirlRadius = Math.sqrt(x * x + y * y);
+        const swirlSpeed = 0.5;
+        positions[i3] = swirlRadius * Math.cos(swirlAngle + swirlSpeed * delta);
+        positions[i3 + 1] = swirlRadius * Math.sin(swirlAngle + swirlSpeed * delta);
+
+        // Add some noise for a more "quantum" feel
+        positions[i3] += (Math.random() - 0.5) * 0.01;
+        positions[i3 + 1] += (Math.random() - 0.5) * 0.01;
+        positions[i3 + 2] += (Math.random() - 0.5) * 0.01;
+    }
+
+    particles.attributes.position.needsUpdate = true;
+    particleSystem.rotation.y += 0.0005;
+
+    requestAnimationFrame(animate);
+    renderer.render(scene, camera);
 }
 
 animate();
 
 // Handle window resize
 window.addEventListener('resize', () => {
-  camera.aspect = window.innerWidth / window.innerHeight;
-  camera.updateProjectionMatrix();
-  renderer.setSize(window.innerWidth, window.innerHeight);
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
 });
 
 // Contact form submission
