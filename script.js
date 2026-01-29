@@ -52,3 +52,37 @@ window.addEventListener('resize', () => {
   camera.updateProjectionMatrix();
   renderer.setSize(window.innerWidth, window.innerHeight);
 });
+
+// Contact form submission
+const form = document.getElementById('contact-form');
+form.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const message = document.getElementById('message').value;
+
+    const webhookUrl = 'https://discord.com/api/webhooks/1466459133321675026/H07LFPt5qnHLIXcTs8dvhsDf0vPs0H_w840Jq9DzHKwN6D1NVtZLqN1qc-XAy6RydxDc';
+
+    const payload = {
+        content: `**New Contact Form Submission**\n\n**Name:** ${name}\n**Email:** ${email}\n**Message:**\n${message}`
+    };
+
+    fetch(webhookUrl, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(payload)
+    }).then(response => {
+        if (response.ok) {
+            alert('Your message has been sent!');
+            form.reset();
+        } else {
+            alert('There was an error sending your message. Please try again later.');
+        }
+    }).catch(error => {
+        console.error('Error:', error);
+        alert('There was an error sending your message. Please try again later.');
+    });
+});
