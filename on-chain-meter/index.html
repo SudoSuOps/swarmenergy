@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SwarmEnergy On-Chain Meter</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>SwarmEnergy.eth</h1>
+            <p>"Pay for actual compute energy. That's it."</p>
+            <p>"Sovereign compute. No token. No charts. Just infra."</p>
+            <button id="connect-wallet-btn">Connect Wallet</button>
+        </header>
+
+        <main id="dashboard" class="hidden">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h2>USDC Credits</h2>
+                    <p id="usdc-credits">$0.00</p>
+                </div>
+                <div class="stat-card">
+                    <h2>Total Energy Used</h2>
+                    <p id="total-energy">0.000 kWh</p>
+                </div>
+                <div class="stat-card">
+                    <h2>Total Spent</h2>
+                    <p id="total-spent">$0.00</p>
+                </div>
+            </div>
+
+            <div class="actions">
+                <button id="deposit-btn">Deposit</button>
+                <button id="withdraw-btn">Withdraw</button>
+            </div>
+
+            <div class="cost-estimator">
+                <h2>Cost Estimator</h2>
+                <input type="number" id="kwh-input" placeholder="Enter kWh needed">
+                <p>Estimated Cost: <span id="estimated-cost">$0.00</span></p>
+            </div>
+
+            <div class="job-history">
+                <h2>Job History</h2>
+                <table id="history-table">
+                    <thead>
+                        <tr>
+                            <th>Job ID</th>
+                            <th>Energy (kWh)</th>
+                            <th>Cost (USDC)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Job history will be populated here -->
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+
+    <div id="modal" class="modal hidden">
+        <div class="modal-content">
+            <h2 id="modal-title">Deposit USDC</h2>
+            <input type="number" id="modal-amount" placeholder="Enter amount">
+            <button id="modal-confirm-btn">Confirm</button>
+            <button id="modal-close-btn">Close</button>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/viem/dist/viem.umd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/wagmi/dist/wagmi.umd.js"></script>
+    <script src="contracts.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
