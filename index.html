@@ -3,286 +3,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SwarmEnergy - Sovereign Compute, Powered by AI</title>
+    <title>SwarmEnergy - Sovereign Compute Infrastructure</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&family=Open+Sans&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
+    <canvas id="energy-background"></canvas>
     <header>
         <div class="container">
             <div class="logo">
-    <img src="logo.svg" alt="SwarmEnergy Logo" style="height: 50px;">
-</div>
-            <nav>
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#offering">Offering</a></li>
-                    <li><a href="#poc">Proof of Compute</a></li>
-                    <li><a href="#swarmcode">SwarmCode</a></li>
-                    <li><a href="#ecosystem">Ecosystem</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-            <div class="energy-meter">
-                <div class="meter-fill"></div>
-                <span class="meter-label">Energy Use: 0.00 kWh</span>
+                <img src="logo.svg" alt="SwarmEnergy Logo">
+                <span>SwarmEnergy</span>
             </div>
+            <nav>
+                <a href="#mission">Mission</a>
+                <a href="#ecosystem">Ecosystem</a>
+                <a href="#swarmcode">SwarmCode</a>
+                <a href="on-chain-meter/index.html" class="launch-app-btn">Launch App</a>
+            </nav>
         </div>
     </header>
 
-    <section id="home" class="hero">
-        <div class="container">
-            <h1>Welcome to SwarmEnergy – Sovereign Compute, Powered by AI</h1>
-            <p>Unlock the Future of Compute with Our Air-Gapped, Secure Energy Infrastructure.</p>
-            <a href="#about" class="btn">Learn More</a>
-        </div>
-    </section>
-
-    <section id="about" class="about">
-        <div class="container">
-            <h2>About SwarmEnergy</h2>
-            <p>SwarmEnergy combines AI compute with energy sovereignty. Our air-gapped infrastructure provides ultimate security and privacy, with no vendor lock-in and no middleman. We offer decentralized compute, Proof of Compute (PoC) validation, and cutting-edge AI-powered workstations.</p>
-            <p>All our compute resources are <span class="highlight">locally owned and operated</span>, managed within our controlled datacenter environments. This means <span class="highlight">no middleman, no outsourcing</span> – we own the compute, and we manage the rails, ensuring complete sovereign trust and control over your data and operations.</p>
-        </div>
-    </section>
-
-    <section id="offering" class="offering">
-        <div class="container">
-            <h2>Our Offering</h2>
-            <p>SwarmEnergy offers custom AI workstations and high-performance compute nodes. With Sovereign Compute, you can buy or rent compute power for your secure, air-gapped applications.</p>
-            <p>We leverage <span class="highlight">ENS identity</span> for seamless and secure billing, with examples like <span class="highlight">agent5090.swarmos.eth</span>. All billing is managed through air-gapped sovereign trust using encrypted JSON files, ensuring unparalleled data privacy and security.</p>
-        </div>
-    </section>
-
-    <section id="poc" class="poc">
-        <div class="container">
-            <h2>Proof of Compute (PoC)</h2>
-            <p>Our Proof of Compute technology ensures energy-efficient AI inference, scalability, and a positive environmental impact by using local energy resources. (Animated graphics will visualize this process).</p>
-        </div>
-    </section>
-
-    <section id="swarmcode" class="swarmcode">
-        <div class="container">
-            <h2>SwarmCode.eth</h2>
-            <p>SwarmCode.eth is the central hub of your decentralized AI and compute ecosystem. It serves as a code repository, deployment system, and smart contract framework designed for building, managing, and executing decentralized compute workloads across your network of independent nodes (e.g., BeeBoxes, Zima-2 devices, GPU rigs, etc.).</p>
-            <p>SwarmCode.eth provides tools, libraries, and a set of protocols that allow clients to deploy custom AI models, manage compute resources, and interact with the SwarmEnergy infrastructure. It's the core infrastructure that connects the various agents, devices, and services across the SwarmOS ecosystem, making it easy for clients to tap into sovereign compute in a secure, efficient, and trustless way.</p>
-
-            <h3>Key Features of SwarmCode.eth:</h3>
-            <div class="feature-grid">
-                <div class="feature-card">
-                    <h4>Decentralized Compute Deployment</h4>
-                    <ul>
-                        <li>Clients can deploy their own AI models, scripts, or workloads onto your network of edge devices (like Zima-2 or GPU-powered machines) without relying on centralized cloud providers.</li>
-                        <li>The compute workloads are deployed on-demand based on client requirements, providing high flexibility and scalability.</li>
-                    </ul>
-                </div>
-                <div class="feature-card">
-                    <h4>Smart Contract Integration</h4>
-                    <ul>
-                        <li>SwarmCode.eth allows clients to manage their AI workloads and computational tasks using smart contracts. These contracts govern how workloads are distributed, executed, and billed in a trustless, decentralized manner.</li>
-                        <li>The Proof of Compute (PoC) system ensures that computations are verifiable and transparent, giving clients confidence in the results without needing third-party audits.</li>
-                    </ul>
-                </div>
-                <div class="feature-card">
-                    <h4>AI Model Management</h4>
-                    <ul>
-                        <li>Clients can upload, fine-tune, and deploy their own AI models through SwarmCode.eth. Whether it's for medical AI, financial prediction models, or custom compute-intensive tasks, clients have full control over their data and models.</li>
-                        <li>Built-in support for popular AI frameworks (like TensorFlow, PyTorch, and Hugging Face) means clients can directly integrate their existing models into the SwarmOS ecosystem.</li>
-                    </ul>
-                </div>
-                <div class="feature-card">
-                    <h4>Resource Management</h4>
-                    <ul>
-                        <li>SwarmCode.eth provides detailed analytics and resource allocation tools, allowing clients to efficiently manage their compute power, GPU resources, and energy consumption.</li>
-                        <li>Clients can specify how much compute they need and for how long, allowing for flexible billing and scaling of resources.</li>
-                    </ul>
-                </div>
-                <div class="feature-card">
-                    <h4>Sovereign AI Workstations</h4>
-                    <ul>
-                        <li>Clients can leverage AI workstations that run entirely on their own hardware, ensuring complete data sovereignty. They have full control over the compute environment, allowing for air-gapped operations—perfect for privacy-conscious applications such as medical imaging, financial modeling, or sensitive data processing.</li>
-                    </ul>
-                </div>
-                <div class="feature-card">
-                    <h4>Network Integration</h4>
-                    <ul>
-                        <li>SwarmCode.eth integrates seamlessly with other services in the SwarmEnergy ecosystem. This enables clients to easily deploy workloads that not only use compute resources but also interact with decentralized energy grids—making it a truly sovereign, energy-efficient platform for compute-intensive applications.</li>
-                    </ul>
+    <main>
+        <section id="hero" class="hero">
+            <div class="container">
+                <h1>Sovereign Compute. <br>No Tokens. No Charts. Just Infra.</h1>
+                <p class="subtitle">Welcome to the home of decentralized, air-gapped AI compute. We own the hardware, we manage the rails. You just build.</p>
+                <div class="hero-buttons">
+                    <a href="#ecosystem" class="btn btn-primary">Explore the Ecosystem</a>
+                    <a href="on-chain-meter/index.html" class="btn btn-secondary">View On-Chain Meter</a>
                 </div>
             </div>
+        </section>
 
-            <h3>How Clients Can Use SwarmCode.eth:</h3>
-            <div class="how-to-use-grid">
-                <div class="how-to-use-card">
-                    <h4>Deploying AI Models</h4>
-                    <p>Clients can upload their pre-trained AI models to SwarmCode.eth and execute them across the network. Whether the task is for medical image processing, financial analysis, or AI-driven research, clients can quickly deploy their models to run on the most suitable hardware (e.g., Zima-2 edge devices or high-performance GPU rigs).</p>
-                </div>
-                <div class="how-to-use-card">
-                    <h4>Custom Workflows and Automation</h4>
-                    <p>Using SwarmCode.eth, clients can create automated workflows for their AI tasks, such as data pre-processing, inference tasks, or post-processing of results. They can even integrate these workflows with external APIs, databases, or services, enabling a fully integrated solution for their specific use case.</p>
-                </div>
-                <div class="how-to-use-card">
-                    <h4>Resource Scheduling and Billing</h4>
-                    <p>Clients can schedule when and how long their tasks will run, and pay based on the actual usage (e.g., per kWh consumed, per hour of GPU compute). The SwarmCode.eth interface gives them control over how resources are allocated, with transparent billing based on energy consumption and network fees.</p>
-                </div>
-                <div class="how-to-use-card">
-                    <h4>Interacting with Smart Contracts</h4>
-                    <p>Clients can interact with smart contracts that govern their compute tasks. These contracts ensure secure, automated execution and proof of work, eliminating the need for intermediaries. Tasks are executed according to predefined terms and clients can track the status and results directly on the blockchain.</p>
-                </div>
-                <div class="how-to-use-card">
-                    <h4>Running AI-Enabled Tasks with Energy Efficiency</h4>
-                    <p>Clients can run compute-intensive tasks while optimizing for energy efficiency. They can choose whether to run tasks on local (air-gapped) devices or leverage remote compute nodes, ensuring minimal energy usage and low carbon footprints. This is particularly valuable for organizations focused on sustainability and green energy solutions.</p>
-                </div>
-                <div class="how-to-use-card">
-                    <h4>Fine-Tuning and Customization</h4>
-                    <p>Clients who need custom fine-tuning of models or workflows can utilize SwarmCode.eth to manage their training environments. With direct access to GPUs, powerful workstations, and decentralized compute resources, fine-tuning AI models becomes a seamless, low-cost operation.</p>
+        <section id="mission" class="mission">
+            <div class="container">
+                <h2>Our Mission: True Sovereignty</h2>
+                <p>We believe in sovereign AI. That means no middlemen, no cloud giants, and no outsourced compute. Our entire infrastructure is locally owned and operated within controlled data centers. We provide the tools, you maintain control. Pay for actual compute energy. That's it.</p>
+            </div>
+        </section>
+
+        <section id="ecosystem" class="ecosystem">
+            <div class="container">
+                <h2>The SwarmOS Ecosystem</h2>
+                <div class="ecosystem-grid">
+                    <div class="ecosystem-card">
+                        <i class="fas fa-cogs"></i>
+                        <h3>SwarmOS</h3>
+                        <p>The Proof of Compute (PoC) layer that orchestrates our decentralized network of agents and resources.</p>
+                    </div>
+                    <div class="ecosystem-card">
+                        <i class="fas fa-server"></i>
+                        <h3>SwarmCompute</h3>
+                        <p>An on-demand, decentralized marketplace for air-gapped GPU power, from high-performance rigs to mini agents.</p>
+                    </div>
+                    <div class="ecosystem-card">
+                        <i class="fas fa-bolt"></i>
+                        <h3>SwarmEnergy</h3>
+                        <p>The backbone of our ecosystem, providing sustainable, energy-efficient power for all compute tasks.</p>
+                    </div>
+                    <div class="ecosystem-card">
+                        <i class="fas fa-cube"></i>
+                        <h3>SwarmBox Pro Mini</h3>
+                        <p>A powerful, compact edge device designed for decentralized compute and running sovereign AI agents.</p>
+                    </div>
                 </div>
             </div>
+        </section>
 
-            <h3>Why Clients Should Use SwarmCode.eth:</h3>
-            <div class="why-use-grid">
-                <div class="why-use-card">
-                    <h4>Decentralized, Trustless</h4>
-                    <p>All interactions are governed by smart contracts, ensuring trustless execution of tasks.</p>
-                </div>
-                <div class="why-use-card">
-                    <h4>Flexibility and Scalability</h4>
-                    <p>Clients can scale compute resources up or down based on demand, making it easy to adapt to changing workloads.</p>
-                </div>
-                <div class="why-use-card">
-                    <h4>Data Sovereignty</h4>
-                    <p>Clients maintain full control over their data, models, and compute environments, with no third-party access or data breaches.</p>
-                </div>
-                <div class="why-use-card">
-                    <h4>Energy-Efficient</h4>
-                    <p>Clients can run AI workloads on the most energy-efficient infrastructure available, powered by the SwarmEnergy decentralized grid.</p>
-                </div>
-                <div class="why-use-card">
-                    <h4>Security and Privacy</h4>
-                    <p>Air-gapped operations ensure that sensitive data stays secure, making it ideal for use cases like medical AI, finance, and research.</p>
-                </div>
-            </div>
-
-            <h3>In Summary:</h3>
-            <p>SwarmCode.eth enables clients to deploy, manage, and run AI models and compute workloads on a decentralized, energy-efficient network. It offers flexibility, scalability, and sovereign control over compute resources, with seamless integration into the broader SwarmEnergy and SwarmOS ecosystems. With transparent billing, smart contract governance, and data sovereignty, SwarmCode.eth empowers clients to fully control their AI workflows and energy usage, making it the ideal platform for advanced, privacy-focused AI applications.</p>
-
-        </div>
-    </section>
-
-    <section id="ecosystem" class="ecosystem">
-        <div class="container">
-            <h2>SwarmOS Ecosystem Snapshot</h2>
-
-            <h3>1. SwarmOS - The Proof of Compute (PoC) Layer</h3>
-            <p>SwarmOS is the core operating system and ecosystem that powers the entire Swarm. It serves as the foundational platform that enables decentralized, energy-efficient compute services across a network of independent agents. SwarmOS is responsible for orchestrating the compute tasks, managing decentralized resources, and ensuring data sovereignty, security, and privacy.</p>
-            <h4>Key Features:</h4>
-            <ul>
-                <li><strong>Proof of Compute (PoC):</strong> Ensures every compute task is verifiable and auditable via blockchain-based proofs.</li>
-                <li><strong>Distributed Compute Management:</strong> Manages compute nodes, GPUs, and resources across your ecosystem.</li>
-                <li><strong>Sovereign Identity:</strong> Each agent, client, and device is linked to an ENS identity, ensuring complete control and trustlessness.</li>
-                <li><strong>Integration with Decentralized Energy:</strong> Tightly integrated with SwarmEnergy, leveraging energy-efficient compute to power tasks.</li>
-                <li><strong>API and SDKs:</strong> Provides tools for developers to build and deploy decentralized applications.</li>
-            </ul>
-
-            <h3>2. SwarmCompute - On-Demand Decentralized Compute</h3>
-            <p>SwarmCompute is a decentralized compute marketplace where users can access on-demand computing resources. Powered by SwarmOS, it allows clients to rent GPU power, storage, and AI workstations from independent operators, eliminating the need for centralized cloud providers. SwarmCompute offers flexible billing based on energy usage and compute time.</p>
-            <h4>Compute Offerings:</h4>
-            <ul>
-                <li><strong>High-Performance GPUs:</strong> 48x 5090s (32GB), 48x RTX 6000 (96GB), 128x 3090Ti/3090</li>
-                <li><strong>SwarmBox Minis:</strong> Custom AI agent boxes with 4GB GPU, N150 CPU, and 64GB RAM.</li>
-            </ul>
-            <h4>Transparent Billing:</h4>
-            <ul>
-                <li>Pricing is based on kWh usage, with $0.0825 per kWh and a $0.02 network fee for each transaction.</li>
-                <li><strong>Example:</strong> A 100 kWh medical imaging task would cost approximately $8.27.</li>
-            </ul>
-            <h4>Key Features:</h4>
-            <ul>
-                <li><strong>On-Demand Compute Resources:</strong> Clients can rent GPUs, storage, and processing power, paying only for what they use.</li>
-                <li><strong>Decentralized Resource Sharing:</strong> Computes power is provided by a network of independent devices, including SwarmBox Pro Mini devices, high-performance GPUs, and edge nodes.</li>
-                <li><strong>Task Automation:</strong> Clients can schedule and automate tasks such as AI model training, image processing, or any compute-intensive workload.</li>
-                <li><strong>Security and Privacy:</strong> All tasks are run on air-gapped infrastructure for added security and privacy.</li>
-            </ul>
-
-            <h3>3. SwarmEnergy - Decentralized, Energy-Efficient Compute Power</h3>
-            <p>SwarmEnergy is the backbone of your decentralized ecosystem, providing energy-efficient compute power for Swarm nodes and agents. It uses local energy sources, such as solar or other green energy, and ensures that compute power is used in a sustainable, efficient manner. It works in synergy with SwarmOS to manage and distribute power across the network.</p>
-            <h4>Key Features:</h4>
-            <ul>
-                <li><strong>Energy-Efficient Compute:</strong> Energy-efficient algorithms and local, renewable energy sources to run compute workloads.</li>
-                <li><strong>Decentralized Energy Distribution:</strong> Allows clients to harness decentralized compute power, minimizing reliance on large, centralized data centers.</li>
-                <li><strong>Billing Based on Energy Consumption:</strong> Clients are billed based on kWh usage, promoting transparency and environmental sustainability.</li>
-                <li><strong>Integration with AI Workstations:</strong> Provides energy to AI workstations and edge devices like SwarmBox Pro Mini.</li>
-            </ul>
-
-            <h3>4. SwarmBox Pro Mini - Decentralized Edge Device for Sovereign Compute</h3>
-            <p>SwarmBox Pro Mini is a small, powerful edge device designed for decentralized compute. It acts as a mini agent within the Swarm ecosystem, providing compute, storage, and AI inference capabilities. SwarmBox Pro Mini devices are used to run AI models, process data, and contribute to the decentralized compute power of SwarmCompute.</p>
-            <h4>Key Features:</h4>
-            <ul>
-                <li><strong>Compact Edge Device:</strong> Small form factor, ideal for home, office, or enterprise-level compute tasks.</li>
-                <li><strong>High Performance:</strong> Equipped with GPUs, these devices deliver powerful compute for AI workloads, including medical imaging, data analysis, and AI model inference.</li>
-                <li><strong>Air-Gapped Security:</strong> Ensures complete data privacy by running tasks in isolated, secure environments.</li>
-                <li><strong>Energy-Efficient:</strong> Designed to work in tandem with SwarmEnergy, using low-power and renewable energy sources.</li>
-                <li><strong>Swarm Integration:</strong> Each SwarmBox Pro Mini is an active participant in the Swarm ecosystem, providing compute power and consuming decentralized energy.</li>
-            </ul>
-
-            <h3>How Clients Use the Ecosystem:</h3>
-            <ul>
-                <li><strong>Deploying AI Workloads with SwarmCompute:</strong> Clients can use SwarmCompute to rent GPU compute power on-demand to run AI models, process data, and train algorithms. They can schedule compute tasks, scale resources as needed, and pay based on actual energy consumption and compute time.</li>
-                <li><strong>Running Decentralized Edge Compute with SwarmBox Pro Mini:</strong> Clients can set up SwarmBox Pro Mini devices at their locations to run edge AI workloads and contribute to the Swarm by offering their idle compute resources to others in the network. These mini agents run tasks in air-gapped environments, ensuring high privacy and security for sensitive data.</li>
-                <li><strong>Energy-Efficient, Sovereign Computing:</strong> Clients can take advantage of SwarmEnergy's decentralized energy model, which allows them to run their compute tasks using local renewable energy, reducing costs and increasing sustainability. They can connect their SwarmBox Pro Mini to the network and start earning rewards by providing compute resources while consuming energy efficiently.</li>
-                <li><strong>Optimizing with SwarmOS:</strong> Clients access SwarmOS to manage their decentralized AI workflows and compute tasks. They can fine-tune AI models, monitor performance, and interact with other Swarm services, all while maintaining full control over their data and resources.</li>
-            </ul>
-
-            <h3>Visualizing the Ecosystem:</h3>
-            <ul>
-                <li><strong>SwarmOS</strong> acts as the central orchestrator, connecting all devices and services in the ecosystem.</li>
-                <li><strong>SwarmCompute</strong> allows clients to access on-demand compute power, scaling their needs in real-time.</li>
-                <li><strong>SwarmEnergy</strong> powers the system by providing energy-efficient, decentralized compute resources.</li>
-                <li><strong>SwarmBox Pro Mini</strong> acts as the edge device, contributing compute power and processing workloads locally, with security and privacy as top priorities.</li>
-            </ul>
-
-            <h3>In Summary:</h3>
-            <p>The SwarmOS ecosystem offers a complete, decentralized solution for AI workloads and compute, powered by SwarmEnergy. With SwarmCompute, clients can access on-demand compute resources, while SwarmBox Pro Mini devices allow individuals and organizations to contribute compute power. The entire system runs on air-gapped infrastructure, ensuring data sovereignty and security. Clients can scale their operations easily, benefit from energy-efficient computing, and maintain full control over their data.</p>
-
-        </div>
-    </section>
-
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2>Contact Us</h2>
-            <form id="contact-form">
-                <div class="form-group">
-                    <label for="name">Name:</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="message">Message:</label>
-                    <textarea id="message" name="message" rows="5" required></textarea>
-                </div>
-                <button type="submit" class="btn">Submit</button>
-            </form>
-        </div>
-    </section>
+        <section id="swarmcode" class="swarmcode">
+             <div class="container">
+                <h2>SwarmCode.eth</h2>
+                <p>The central hub for our decentralized AI ecosystem. A code repository, deployment system, and smart contract framework for building and managing workloads on the Swarm.
+                </p>
+                <a href="https://github.com/SudoSuOps/swarm-code.git" target="_blank" class="btn btn-secondary">
+                    <i class="fab fa-github"></i> Explore on GitHub
+                </a>
+             </div>
+        </section>
+    </main>
 
     <footer>
         <div class="container">
-            <p>&copy; 2026 SwarmEnergy. All rights reserved.</p>
-            <div class="social-links">
-                <a href="#">Privacy Policy</a>
-                <a href="#">Terms of Service</a>
-                <a href="#">About Us</a>
-                <a href="#">Contact</a>
+            <div class="footer-links">
                 <a href="https://github.com/SudoSuOps/swarm-code.git" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" aria-label="Discord"><i class="fab fa-discord"></i></a>
             </div>
-            <div class="footer-logo">
-                <p>Powered by SwarmOS – The Proof of Compute Layer.</p>
-            </div>
+            <p>&copy; 2026 SwarmEnergy. All rights reserved.</p>
         </div>
     </footer>
 
