@@ -131,10 +131,57 @@ header a:hover {
 .offering,
 .poc,
 .workstations,
+.compute,
 .contact {
     padding: 100px 0;
     text-align: center;
     background-color: rgba(0, 0, 0, 0.7);
+}
+
+.compute-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.compute-card {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #00ff00;
+}
+
+.compute-card h3 {
+    color: #00ff00;
+    font-family: 'Roboto', sans-serif;
+}
+
+.compute-card ul {
+    list-style: none;
+    padding: 0;
+}
+
+.compute-card li {
+    margin-bottom: 10px;
+}
+
+.pricing-model {
+    max-width: 600px;
+    margin: 0 auto;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #00ff00;
+}
+
+.pricing-model ul {
+    list-style: none;
+    padding: 0;
+}
+
+.pricing-model li {
+    margin-bottom: 10px;
 }
 
 h2 {
