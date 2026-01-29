@@ -138,6 +138,11 @@ header a:hover {
     background-color: rgba(0, 0, 0, 0.7);
 }
 
+.highlight {
+    color: #00ff00;
+    font-weight: bold;
+}
+
 .compute-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
