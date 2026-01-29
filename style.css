@@ -45,6 +45,8 @@ header .logo {
     text-transform: uppercase;
     font-weight: bold;
     font-family: 'Roboto', sans-serif;
+    display: flex;
+    align-items: center;
 }
 
 header nav {
